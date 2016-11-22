@@ -5,12 +5,13 @@ from django.contrib.auth.models import User
 def registro(datosRegistro):
     try:
         usuario = datosusuario()
-        usuario.user = User.objects.get(username=datosRegistro.get('no_boleta'))
+        usuario.user = User.objects.get(username=datosRegistro.get('correo'))
         usuario.nombre = datosRegistro.get('nombre')
         usuario.apellidos = datosRegistro.get('apellidos')
         usuario.no_boleta = datosRegistro.get('no_boleta')
         usuario.carrera = datosRegistro.get('carrera')
         usuario.contrasena = datosRegistro.get('contrasena')
+        usuario.correo = datosRegistro.get('correo')
         usuario.save()
     except Exception as e:
         print(e)
